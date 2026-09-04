@@ -1,0 +1,38 @@
+# OpsHub 容器部署配置示例
+# 复制为 config.yaml 后按环境修改；不要提交真实配置。
+# 也可通过 OPSHUB_* 环境变量注入（例如 OPSHUB_DATABASE_DSN）。
+server:
+  port: 48884
+
+database:
+  # 必填：通过 OPSHUB_DATABASE_DSN 或不入库的本地配置提供。
+  dsn: ""
+  log_file: "logs/gorm.log"
+
+security:
+  # 使用三个不同的值：encrypt_key 必须为 32 字节，auth_secret 至少 32 字节，
+  # admin_password 至少 12 个字符。
+  encrypt_key: ""
+  auth_secret: ""
+  admin_username: "admin"
+  admin_password: ""
+
+static:
+  dir: "./static"
+
+jenkins:
+  url: "https://jenkins.example.com/"
+  user: ""
+  token: ""
+
+log:
+  level: "info"
+  file_path: "logs/ops-hub.log"
+  max_size: 100
+  max_backups: 10
+  max_age: 30
+  compress: true
+
+document:
+  base_dir: "./documents"
+  max_file_size: 10485760

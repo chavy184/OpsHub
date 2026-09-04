@@ -1,0 +1,8 @@
+# ops-hub
+*.log
+node_modules
+frontend/dist
+backend/ops-hub
+.env
+**/configs/config.yaml
+.claude/settings.local.json

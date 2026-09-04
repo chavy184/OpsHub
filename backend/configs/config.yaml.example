@@ -1,0 +1,41 @@
+# OpsHub configuration example
+#
+# Copy this file to configs/config.yaml for local development. Never commit the
+# real file. Every value below can also be provided as an environment variable;
+# for example, database.dsn maps to OPSHUB_DATABASE_DSN.
+
+server:
+  port: 48884
+
+database:
+  # Required: set OPSHUB_DATABASE_DSN or place the DSN in the ignored local copy.
+  dsn: ""
+  log_file: "logs/gorm.log"
+
+security:
+  # Use three different secrets. encrypt_key must be exactly 32 bytes,
+  # auth_secret at least 32 bytes, and admin_password at least 12 characters.
+  encrypt_key: ""
+  auth_secret: ""
+  admin_username: "admin"
+  admin_password: ""
+
+static:
+  dir: "./static"
+
+jenkins:
+  url: "https://jenkins.example.com/"
+  user: ""
+  token: ""
+
+log:
+  level: "info"
+  file_path: "logs/ops-hub.log"
+  max_size: 100
+  max_backups: 10
+  max_age: 30
+  compress: true
+
+document:
+  base_dir: "./documents"
+  max_file_size: 10485760

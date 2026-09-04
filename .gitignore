@@ -1,0 +1,40 @@
+# Frontend build output
+frontend/dist/
+
+# Dependencies
+frontend/node_modules/
+
+# TypeScript build info
+frontend/tsconfig.tsbuildinfo
+
+# Backend binary
+backend/ops-hub
+backend/ops-hub.exe
+
+# Runtime data
+**/logs/
+builder/data/
+builder/server/migrations/
+backend/documents/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+**/configs/config.yaml
+.claude/settings.local.json
+backend/payload.json
+
+# Local documentation and AI workspace configuration
+.docs/
+.agents/
+.claude/
+.codex/
+.github/copilot-instructions.md
+skills-lock.json
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,20 @@
+services:
+  ops-hub-server:
+    image: ops-hub-server:latest
+    build:
+      context: ../
+      dockerfile: builder/server/Dockerfile
+    container_name: ops-hub-server
+    restart: unless-stopped
+    ports:
+      - "48884:48884"
+    volumes:
+      - ${OPSHUB_DATA_DIR:-./data}/logs:/app/logs
+      - ${OPSHUB_DATA_DIR:-./data}/configs:/app/configs
+      - ${OPSHUB_DATA_DIR:-./data}/migrations:/app/migrations
+      - ${OPSHUB_DATA_DIR:-./data}/documents:/app/documents
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:48884/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
